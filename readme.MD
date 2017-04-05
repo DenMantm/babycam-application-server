@@ -1,17 +1,10 @@
-Angular 2 Fundamentals Course
+Baby Camera Project Application Part
 ========================
-This is the getting started package for the Pluralsight course on Angular 2 Fundamentals found here: http://app.pluralsight.com/courses/angular-fundamentals
+Status: Still under development
 
-**Course Status**
-
-The course is currently up-to-date.
-
-
-Getting Started
+Requirment
 ---------------
-Be sure you're running the recommended node version, which is 6.3.0+: `node --version`
-
-Follow along with the course linked above. To start the server:
+video Server part installed and configured.
 
 ```
 npm install
