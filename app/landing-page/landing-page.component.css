@@ -112,7 +112,7 @@ h3{
 /*LOGIN WINDOW               */
 
         .login-form {
-            display:none;
+            /*display:none;*/
             width: 25rem;
             height: 18.75rem;
             position: fixed;
@@ -121,10 +121,11 @@ h3{
             left: 50%;
             margin-left: -12.5rem;
             background-color: #ffffff;
-            opacity: 0;
+            opacity: 1.0;
             -webkit-transform: scale(.8);
             transform: scale(.8);
         }
-                
+em{float:right;color:orange;padding-left:10px;}
+.noscroll { overflow: hidden; }
                 
  

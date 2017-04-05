@@ -1,6 +1,7 @@
 import {NgModule} from '@angular/core';
 import {BrowserModule} from '@angular/platform-browser';
 import {RouterModule} from '@angular/router'
+import {FormsModule, ReactiveFormsModule} from '@angular/forms';
 
 import { BabycamAppComponent} from './babycam-app.component';
 import { NavbarComponent } from './nav/navbar.component';
@@ -10,13 +11,17 @@ import { HomeComponent } from './home/index';
 import { PicturesComponent } from './pictures/index';
 import { LandingPageComponent } from './landing-page/index';
 
+
 //services
 import { AuthService } from './user/auth.service';
+import { LoggedInGuard } from './common/guard-service';
 
 import { appRoutes } from './routes'
 @NgModule({
     imports:[BrowserModule,
-            RouterModule.forRoot(appRoutes)],
+            RouterModule.forRoot(appRoutes),           
+            FormsModule,
+            ReactiveFormsModule],
     declarations:[
                     BabycamAppComponent,
                     NavbarComponent,
@@ -25,7 +30,7 @@ import { appRoutes } from './routes'
                     PicturesComponent,
                     LandingPageComponent
                     ],
-    providers: [AuthService],
+    providers: [AuthService,LoggedInGuard],
     bootstrap:[BabycamAppComponent]
 })
 
