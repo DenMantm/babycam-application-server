@@ -3,9 +3,11 @@ import {Component, ViewChild, ElementRef, AfterViewInit} from '@angular/core';
 declare let JSMpeg:any;
 
 @Component({
-    template:`<h3>Video Stream</h3>
-    	<canvas #_canvas id="video-canvas"></canvas>
-	`
+    templateUrl:'./app/home/home.component.html',
+		styles:[`.background{
+			background-image: url("app/assets/images/video-page/white-background-stars.jpg");
+			height:100%;}
+			canvas{border-style: groove;width:100%}`]
 })
 
 
