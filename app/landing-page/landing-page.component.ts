@@ -1,7 +1,8 @@
-import {Component, HostListener, OnInit} from '@angular/core';
+import { Component, HostListener, OnInit, ElementRef, Renderer, } from '@angular/core';
 import { FormGroup, FormControl, Validators } from '@angular/forms';
 import { AuthService } from '../user/auth.service';
 import { IUser } from '../user/user.model';
+import { ColorSchemeService } from '../common/index';
 
 
 @Component({
@@ -20,11 +21,18 @@ loginForm:FormGroup;
 username:FormControl;
 password:FormControl;
 user:IUser;
+el: ElementRef;
+validLogin:boolean;
 
-constructor(private auth:AuthService){}
+constructor(private auth:AuthService,
+private scheme:ColorSchemeService,
+el: ElementRef){
+    this.el = el;
+}
 
 //form
 ngOnInit(){
+    this.validLogin = true;
     this.username = new FormControl('',Validators.required)
     this.password = new FormControl('',Validators.required)
     this.loginForm = new FormGroup({
@@ -32,6 +40,11 @@ ngOnInit(){
         password:this.password
     })
 }
+  ngAfterViewInit() {
+    const hostElem = this.el.nativeElement;
+    //console.log(hostElem.children);
+    //console.log(hostElem.parentNode);
+  }
 
 @HostListener("window:scroll", ['$event'])
 onWindowScroll(event) {
@@ -43,16 +56,16 @@ onWindowScroll(event) {
       this.dynamicBannerBackground = '50% ' + (-scrollPos/4)+"px";
       this.dynamicMarginTop = (scrollPos/4)+"px";
       this.dynamicOpacity =  1-(scrollPos/250);
-
-
-
 }
 login(value){
-    console.log(value);
-    let response = this.auth.login(value.username,value.password);
-    if(!response){
+    this.auth.login(value.username,value.password).subscribe(resp =>{
+            if(!resp){
         console.log('Failed to login');
+        this.validLogin = false;
     }
+    });
+    //console.log(response);
+
 }
 
 	

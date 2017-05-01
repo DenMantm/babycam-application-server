@@ -4,10 +4,9 @@ declare let JSMpeg:any;
 
 @Component({
     templateUrl:'./app/home/home.component.html',
-		styles:[`.background{
-			background-image: url("app/assets/images/video-page/white-background-stars.jpg");
-			height:100%;}
-			canvas{border-style: groove;width:100%}`]
+		//background-image: url("app/assets/images/video-page/white-background-stars.jpg")
+		styles:[`
+						canvas{border-style: groove;width:100%}`]
 })
 
 

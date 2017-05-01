@@ -33,12 +33,56 @@ button {
   background-color: #f89406;
 }
 
-body {
-    /*background-color:gray;*/
-  /*background-image: url("https://lh4.googleusercontent.com/-3eBjuQpOGFw/U47yh_-OycI/AAAAAAAAI2U/uaU5pK49N1w/s1600/normal.jpg");*/
-  background-image: url("app/assets/images/landing-page/IMG_488279_hearts_normal.jpg");
-  background-repeat: no-repeat;
-  background-size: cover;
-  background-attachment: fixed;
-  font-family: Raleway, Open Sans, Droid Sans, Roboto, arial, sans-serif;
+
+
+.background{
+						-webkit-box-shadow: 0px 7px 20px 11px rgba(0,0,0,0.75);
+						-moz-box-shadow: 0px 7px 20px 11px rgba(0,0,0,0.75);
+						box-shadow: 0px 7px 20px 11px rgba(0,0,0,0.75);
+						background-color:white;
+						height:100%;
+            width:inherit;
+            position:absolute;
+            opacity: 0.75;
+            margin-top: -10px;
+            margin-left: -10px;
+            background-image: url("/app/assets/images/shared/ovm0NSK.jpg");
+                z-index: -1;
+            }
+.background-white{
+						-webkit-box-shadow: 0px 7px 20px 11px rgba(0,0,0,0.75);
+						-moz-box-shadow: 0px 7px 20px 11px rgba(0,0,0,0.75);
+						box-shadow: 0px 7px 20px 11px rgba(0,0,0,0.75);
+						background-color:white;
+						height:100%;
+            width:inherit;
+            position:absolute;
+            opacity: 0.75;
+            margin-top: -10px;
+            margin-left: -10px;
+            background-color:white;
+                z-index: -1;
+            }
+h3{color:lightsteelblue}
+.scheme-blue{
+  width:100%;
+  height:100%;
+  background-color:#71b1d1;
+
+}
+.scheme-green{
+  width:100%;
+  height:100%;
+  background-color:green;
+}
+
+
+.loader{
+ position: fixed;
+  left: 0px;
+  top: 0px;
+  width: 100%;
+  height: 100%;
+  z-index: 9999;
+  background: url('/app/assets/images/shared/giphy.gif') 50% 50% no-repeat rgb(249,249,249);
 }

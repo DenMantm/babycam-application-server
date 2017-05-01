@@ -40,7 +40,7 @@
     </div>
   </div>
 </div>-->
-<div class="app-bar fixed-top" data-role="appbar">
+<div class="app-bar" data-role="appbar">
         <a class="app-bar-element branding">BabyCam</a>
         <span class="app-bar-divider"></span>
         <ul class="app-bar-menu">
@@ -79,9 +79,47 @@
             <div class="app-bar-drop-container padding10 place-right no-margin-top block-shadow fg-dark" data-role="dropdown" data-no-close="true" style="width: 220px">
                 <h2 class="text-light">Quick settings</h2>
                 <ul class="unstyled-list fg-dark">
-                    <li><a href="" class="fg-white1 fg-hover-yellow">Profile</a></li>
-                    <li><a href="" class="fg-white1 fg-hover-yellow">Colour Scheme</a></li>
-                    <li><a href="" class="fg-white3 fg-hover-yellow">Exit</a></li>
+                    <li><a class="fg-white1 fg-hover-yellow" data-toggle="modal" data-target="#myModal">Profile</a></li>
+                    <li><a (click)="showColourScheme()" class="fg-white1 fg-hover-yellow">Colour Scheme</a></li>
+                    <li><a (click)="logout()"class="fg-white3 fg-hover-yellow">Exit</a></li>
                 </ul>
             </div>
         </div>
+
+</div>
+
+<div #charm data-role="charm" data-position="top">
+    <h1 class="text-light">Colour Schemes</h1>
+        <hr class="thin"/>
+        <br />
+        <div class="schemeButtons">
+            <div *ngFor="let color of colors" class="button square-button" (click)="changeColour(color)"[ngStyle]="{'background-color':color}"></div>
+        </div>
+        <br/>
+        <h3>Default colors</h3>
+        <hr class="thin"/>
+        <br />
+        <div class="schemeButtons">
+           <div class="button square-button" (click)="changeColour('#71b1d1')"[ngStyle]="{'background-color':'#71b1d1'}"></div>
+        </div>
+</div>
+
+<div id="myModal" class="modal fade" role="dialog">
+  <div class="modal-dialog">
+
+    <!-- Modal content-->
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal">&times;</button>
+        <h4 class="modal-title">Modal Header</h4>
+      </div>
+      <div class="modal-body">
+        <p>Some text in the modal.</p>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+      </div>
+    </div>
+
+  </div>
+</div>

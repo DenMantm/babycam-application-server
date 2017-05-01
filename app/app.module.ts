@@ -2,6 +2,8 @@ import {NgModule} from '@angular/core';
 import {BrowserModule} from '@angular/platform-browser';
 import {RouterModule} from '@angular/router'
 import {FormsModule, ReactiveFormsModule} from '@angular/forms';
+import {HttpModule} from '@angular/http';
+
 
 import { BabycamAppComponent} from './babycam-app.component';
 import { NavbarComponent } from './nav/navbar.component';
@@ -14,23 +16,36 @@ import { LandingPageComponent } from './landing-page/index';
 
 //services
 import { AuthService } from './user/auth.service';
-import { LoggedInGuard } from './common/guard-service';
+
+import { LoggedInGuard, 
+        ColorSchemeService,
+        JQUERY_TOKEN,
+        SimpleModalComponent
+         } from './common/index';
 
 import { appRoutes } from './routes'
+
+declare let jQuery:Object;
+// declare let metro:Object;
+
 @NgModule({
     imports:[BrowserModule,
             RouterModule.forRoot(appRoutes),           
             FormsModule,
-            ReactiveFormsModule],
+            ReactiveFormsModule,
+            HttpModule],
     declarations:[
                     BabycamAppComponent,
                     NavbarComponent,
                     Error404Component,
                     HomeComponent,
                     PicturesComponent,
-                    LandingPageComponent
+                    LandingPageComponent,
+                    SimpleModalComponent
                     ],
-    providers: [AuthService,LoggedInGuard],
+    providers: [AuthService,LoggedInGuard,ColorSchemeService,
+    {provide:JQUERY_TOKEN,useValue:jQuery}
+    ],
     bootstrap:[BabycamAppComponent]
 })
 

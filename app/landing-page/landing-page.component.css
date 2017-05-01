@@ -90,7 +90,14 @@ h3{
 }
 
 
-#banner { background: url('app/assets/images/landing-page/IMG_488278_banner.jpg') no-repeat fixed 50% 0; background-size: cover; color: #fff; height: 100%; width: 100%; }
+#banner { 
+  /*background: url('app/assets/images/landing-page/IMG_488278_banner.jpg') no-repeat fixed 50% 0; */
+  background-color:gray;
+  background-size: cover; 
+  color: #fff; 
+  height: 100%; 
+  width: 100%; 
+  margin-bottom: -10px;}
 
 #bannertext { width: 24em; position: fixed; top: 20%; left: 50%; border: .5em solid #fff; margin-left: -12em; padding: 1em 0; }
 
@@ -104,7 +111,7 @@ h3{
 .main_body_container{
     margin-left:5%;
     margin-right:5%;
-    margin-bottom:300px;
+    margin-bottom:250px;
     
 }
 #bannertext{text-align: center;}
@@ -127,5 +134,12 @@ h3{
         }
 em{float:right;color:orange;padding-left:10px;}
 .noscroll { overflow: hidden; }
-                
+
  
+footer{
+  background-color:black;
+  color:white;
+  width:100%;
+  height:100px;
+  text-align: center;
+}
