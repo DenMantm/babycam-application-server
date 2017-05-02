@@ -1,4 +1,5 @@
 import {Component, ViewChild, ElementRef, AfterViewInit} from '@angular/core';
+import { SaveImageService } from '../common/index';
 
 declare let JSMpeg:any;
 
@@ -16,7 +17,9 @@ export class HomeComponent {
 	player:any;
 	@ViewChild("_canvas") myCanvas:ElementRef; 
 	//constructor(canvas:canvas){}
-	
+	constructor(private save:SaveImageService){
+		
+	}
   ngAfterViewInit() {
     
     this.canvas = this.myCanvas.nativeElement;

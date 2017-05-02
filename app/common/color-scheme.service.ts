@@ -1,5 +1,6 @@
 import { Injectable, OnInit } from '@angular/core';
 
+@Injectable()
 export class ColorSchemeService implements OnInit {
     
     colourScheme:string

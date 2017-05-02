@@ -1,6 +1,7 @@
 import { Component, Inject, ViewChild, ElementRef, Output, EventEmitter } from '@angular/core';
 import { JQUERY_TOKEN } from '../common/index';
 import { AuthService } from '../user/auth.service';
+import { IUser } from '../user/user.model';
 
 @Component({
     selector: 'navbar-component',
@@ -14,10 +15,12 @@ import { AuthService } from '../user/auth.service';
 export class NavbarComponent {
     private el:HTMLElement
     colors:string[] = [];
+    navbarColors:Object[] = [];
     @ViewChild('charm') charm:ElementRef;
     @Output() changeScheme = new EventEmitter();
+    currentUser:IUser;
     constructor(@Inject(JQUERY_TOKEN) private $,private auth:AuthService){
-            
+         
     }
     ngOnInit(){
         this.el = this.charm.nativeElement;
@@ -26,6 +29,29 @@ export class NavbarComponent {
             tmp = this.getRandomColor();
             this.colors.push(tmp);
         }
+        //getting current user
+       this.currentUser = this.auth.getCurrentUser();
+       console.log(this.currentUser);
+
+       //colours for navbar
+       this.navbarColors = [{class:'darcula',
+                             color:'#3c3f41'},
+                             {class:'pink',
+                             color:'#dc4fad'},
+                             {class:'navy',
+                             color:'#0072c6'},
+                             {class:'red',
+                             color:'#ce352c'},
+                             {class:'green',
+                             color:'#60a917'},
+                             {class:'orange',
+                             color:'#fa6800'},
+                             {class:'default',
+                             color:'#0072c6'}]
+
+                            
+        //this.currentUser.appSettings.navbarColourScheme = this.navbarColors[0];
+        this.changeColour(this.currentUser.appSettings.colourScheme);
     }
     showColourScheme(){
            var  charm = this.$(this.el).data("charm");
@@ -37,7 +63,11 @@ export class NavbarComponent {
     }
     changeColour(color){
         this.changeScheme.emit(color);
-        console.log(color);
+            //save to the user settings here
+    }
+    changeNavbarColour(color){
+            this.currentUser.appSettings.navbarColourScheme = color;
+            //save to the user settings here
     }
 
     getRandomColor() {
@@ -50,6 +80,9 @@ export class NavbarComponent {
   } 
   logout(){
     this.auth.logout();
+  }
+  showSettings(){
+      this.$('#settings').modal();
   }
 
 

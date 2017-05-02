@@ -13,14 +13,17 @@ import { HomeComponent } from './home/index';
 import { PicturesComponent } from './pictures/index';
 import { LandingPageComponent } from './landing-page/index';
 
+import { SettingsComponent } from './settings/settings.component';
 
-//services
+
+//service
 import { AuthService } from './user/auth.service';
 
 import { LoggedInGuard, 
         ColorSchemeService,
+        NotifyService,
         JQUERY_TOKEN,
-        SimpleModalComponent
+        SimpleModalComponent, FirstPageGuard, SaveImageService
          } from './common/index';
 
 import { appRoutes } from './routes'
@@ -41,10 +44,11 @@ declare let jQuery:Object;
                     HomeComponent,
                     PicturesComponent,
                     LandingPageComponent,
-                    SimpleModalComponent
+                    SimpleModalComponent,
+                    SettingsComponent
                     ],
-    providers: [AuthService,LoggedInGuard,ColorSchemeService,
-    {provide:JQUERY_TOKEN,useValue:jQuery}
+    providers: [AuthService,LoggedInGuard,FirstPageGuard,ColorSchemeService,NotifyService,SaveImageService,
+    {provide:JQUERY_TOKEN,useValue:jQuery,}
     ],
     bootstrap:[BabycamAppComponent]
 })
