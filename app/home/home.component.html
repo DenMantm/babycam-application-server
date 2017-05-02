@@ -9,15 +9,15 @@
                 </div>
                 <div class="col-md-3">
                     <h3>Menu</h3>
-                    <button class="button"><span class="mif-checkmark"></span>Capture Picture</button>
+                    <button (click)= "saveImage()" class="button"><span class="mif-checkmark"></span>Capture Picture</button>
                 </div>
             </div>
             <div class='row'>
                 <div class="col-md-12">
-                    <h3>Last captured pictures</h3>
-
-<!-- Trigger the modal with a button -->
+                    <h3>Last captured pictures</h3>              
                 </div>
             </div>
+            <last-pictures [lastImages]="lastImages">
+            </last-pictures>
 	</div>
 

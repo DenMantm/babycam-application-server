@@ -78,11 +78,12 @@ h3{color:lightsteelblue}
 
 
 .loader{
- position: fixed;
-  left: 0px;
-  top: 0px;
+ /*position: fixed;*/
+  left: 50%;
+  top: 50%;
   width: 100%;
   height: 100%;
   z-index: 9999;
-  background: url('/app/assets/images/shared/giphy.gif') 50% 50% no-repeat rgb(249,249,249);
+  /*background: url('/app/assets/images/shared/giphy.gif') 50% 50% no-repeat rgb(249,249,249);*/
 }
+body{background-color:#558C89;}

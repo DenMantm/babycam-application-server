@@ -1,4 +1,4 @@
-import {Component, ViewChild, ElementRef, AfterViewInit} from '@angular/core';
+import {Component, ViewChild, ElementRef, AfterViewInit,OnInit} from '@angular/core';
 import { SaveImageService } from '../common/index';
 
 declare let JSMpeg:any;
@@ -11,13 +11,17 @@ declare let JSMpeg:any;
 })
 
 
-export class HomeComponent {
+export class HomeComponent implements OnInit {
+		ngOnInit(): void {
+			this.getLastImages();
+		}
+	lastImages:Object[];
 	canvas:any;
 	url:string;
 	player:any;
 	@ViewChild("_canvas") myCanvas:ElementRef; 
 	//constructor(canvas:canvas){}
-	constructor(private save:SaveImageService){
+	constructor(private imageService:SaveImageService){
 		
 	}
   ngAfterViewInit() {
@@ -27,6 +31,15 @@ export class HomeComponent {
 	this.url = 'ws://192.168.199:8082/';
 	this.player = new JSMpeg.Player(this.url, { canvas: this.canvas });
   }
+	saveImage(){
+		this.imageService.saveImage(this.myCanvas.nativeElement);
+		this.getLastImages();
+	}
+	getLastImages(){
+		this.imageService.getLastImages().subscribe(data=>{
+      console.log(data) ;
+     this.lastImages = data });
+	}
 	
 
 

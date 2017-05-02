@@ -23,6 +23,13 @@ success(title:string,body:string):void{
     type: 'success'
 });
 }
+warning(title:string,body:string):void{
+    this.$.Notify({
+    caption: title,
+    content: body,
+    type: 'warning'
+});
+}
 
 
     

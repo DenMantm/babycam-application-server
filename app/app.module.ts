@@ -9,7 +9,7 @@ import { BabycamAppComponent} from './babycam-app.component';
 import { NavbarComponent } from './nav/navbar.component';
 import { Error404Component } from './errors/404.component';
 
-import { HomeComponent } from './home/index';
+import { HomeComponent,LastPicturesComponent } from './home/index';
 import { PicturesComponent } from './pictures/index';
 import { LandingPageComponent } from './landing-page/index';
 
@@ -45,7 +45,8 @@ declare let jQuery:Object;
                     PicturesComponent,
                     LandingPageComponent,
                     SimpleModalComponent,
-                    SettingsComponent
+                    SettingsComponent,
+                    LastPicturesComponent
                     ],
     providers: [AuthService,LoggedInGuard,FirstPageGuard,ColorSchemeService,NotifyService,SaveImageService,
     {provide:JQUERY_TOKEN,useValue:jQuery,}
