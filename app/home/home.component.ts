@@ -7,7 +7,8 @@ declare let JSMpeg:any;
     templateUrl:'./app/home/home.component.html',
 		//background-image: url("app/assets/images/video-page/white-background-stars.jpg")
 		styles:[`
-						canvas{border-style: groove;width:100%}`]
+						canvas{border-style: groove;width:100%}
+						.saveBtnMenu{max-width: 8rem!important;}`]
 })
 
 

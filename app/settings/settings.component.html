@@ -50,7 +50,7 @@
                             
                                 <div class="form-actions">
                                     <button  type="submit" class="button primary">Save</button>
-                                    <button  id='cancel_login_button' type="button" data-dismiss="modal" class="button link">Cancel</button>
+                                    <button  id='cancel_login_button' type="button" data-dismiss="modal" class="button link">Close</button>
                                 </div>
                             </form>
 
@@ -70,14 +70,24 @@
                                     <span class="mif-cancel"></span>
                                 </button>
                             </div>
-                            <label>Babys Birthday</label>
-                            <div class="input-control text" data-role="datepicker" data-preset="2017.07.02">
-                                <input type="text">
+                            <label>Babys Birthday {{x}}</label>
+                            <div *ngIf="showBabyBirthday"  class="input-control text" data-role="datepicker" [attr.data-preset]="currentUser.babySettings.babyBirthDate">
+                                <input (change)="x=$event.target.value" formControlName="babyBirthDate" type="text">
                                 <button class="button"><span class="mif-calendar"></span></button>
+                                <button (click)="showBabyBirthday=false" class="button">
+                                    <span class="mif-cancel"></span>
+                                </button>
                             </div>
+                            <div *ngIf="!showBabyBirthday" class="input-control text input" data-role="input">
+                                <!--<input type="text">-->
+                                <p>{{currentUser.babySettings.babyBirthDate  | date: 'yyyy.MM.dd'}}</p>
+                                <button  (click)="showBabyBirthday=true" class="button">
+                                    <span class="mif-pencil"></span>
+                                </button>
+                            </div>     
                                 <div class="form-actions">
                                     <button  type="submit" class="button primary">Save</button>
-                                    <button  id='cancel_login_button' type="button" data-dismiss="modal" class="button link">Cancel</button>
+                                    <button  id='cancel_login_button' type="button" data-dismiss="modal" class="button link">Close</button>
                                 </div>
                             </form>
                                     
@@ -87,20 +97,20 @@
                                     <p>
                                         <label>Screen always stays on</label>
                                         <label class="switch-original">
-                                            <input type="checkbox" checked="">
+                                            <input (change)="changeAlwaysOnState($event.target.value)" type="checkbox" [attr.checked]="c">
                                             <span class="check"></span>
                                         </label></p>
                                    
                                         <div class="text">
                  <label>Current Background colour scheme</label>
-                  <div class="button square-button" [ngStyle]="{'background-color':'#71b1d1'}"></div>
-                  <button  (click)="showBabyname=true" class="button"><span class="mif-pencil"></span></button>
+                  <div class="button square-button" [ngStyle]="{'background-color':currentUser.appSettings.colourScheme}"></div>
+                  <button  (click)="openColorCharm()" class="button"><span class="mif-pencil"></span></button>
                                         </div>
 
                   <div class="text">
                  <label>Current Navbar colour scheme</label>
-                 <div class="button square-button" [ngStyle]="{'background-color':'#71b1d1'}"></div>
-                  <button  (click)="showBabyname=true" class="button"><span class="mif-pencil"></span></button>
+                 <div class="button square-button" [ngStyle]="{'background-color':currentUser.appSettings.navbarColourScheme.color}"></div>
+                  <button  (click)="openColorCharm()" class="button"><span class="mif-pencil"></span></button>
                   </div>
                                     </div>
                             </div>

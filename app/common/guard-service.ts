@@ -9,6 +9,8 @@ export class LoggedInGuard implements CanActivate {
   }
 
   canActivate() {
+    console.log("Running Service");
+
       if(!this.auth.isAuthenticated()){
         return !!this.auth.isAuthenticatedOnServer().then(res=>{
             if(res.id == undefined){

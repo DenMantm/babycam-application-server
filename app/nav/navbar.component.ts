@@ -52,6 +52,7 @@ export class NavbarComponent {
                             
         //this.currentUser.appSettings.navbarColourScheme = this.navbarColors[0];
         this.changeColour(this.currentUser.appSettings.colourScheme);
+        this.changeNavbarColour(this.currentUser.appSettings.navbarColourScheme);
     }
     showColourScheme(){
            var  charm = this.$(this.el).data("charm");
@@ -63,11 +64,14 @@ export class NavbarComponent {
     }
     changeColour(color){
         this.changeScheme.emit(color);
-            //save to the user settings here
+        this.currentUser.appSettings.colourScheme = color;
+
+         this.auth.changeUserSettings(this.currentUser).subscribe();
     }
     changeNavbarColour(color){
             this.currentUser.appSettings.navbarColourScheme = color;
-            //save to the user settings here
+
+            this.auth.changeUserSettings(this.currentUser).subscribe();
     }
 
     getRandomColor() {

@@ -12,6 +12,23 @@ export class SaveImageService implements OnInit {
   ngOnInit() {
     //return this.auth.isAuthenticated();
   }
+  removeImage(image){
+
+            let headers = new Headers({'Content-Type':'application/json'});
+            let options = new RequestOptions({headers:headers});
+            
+            return this.http.post('/api/deleteCanvasImage',JSON.stringify(image),options).do(
+            resp =>{ if(resp){
+                // this.currentUser = resp.json().user;
+                // this.router.navigate(['/home']);
+                
+            }
+        }).catch(error =>{
+                return Observable.of(false);
+            })
+      
+
+  }
   saveImage(canvas){
       let image = canvas.toDataURL("image/png");
       console.log("debug2" + image);
@@ -55,6 +72,9 @@ export class SaveImageService implements OnInit {
       
       return newImage;
 
+  }
+  getAllImages(){
+    return this.http.get('/api/getAllImages').map(resp => resp.json());
   }
 }
 

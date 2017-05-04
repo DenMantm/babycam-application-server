@@ -28,6 +28,7 @@
     "body-parser": "^1.17.1",
     "core-js": "~2.4.1",
     "formidable": "^1.1.1",
+    "moment": "^2.18.1",
     "mongodb": "^2.2.26",
     "ng2f-bootstrap": "~0.0.4",
     "ng2f-server": "~0.2.3",

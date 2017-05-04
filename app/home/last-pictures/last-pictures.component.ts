@@ -3,7 +3,7 @@ import { SaveImageService } from '../../common/index';
 @Component({
     selector:'last-pictures',
     templateUrl:'/app/home/last-pictures/last-pictures.component.html',
-    styles:[``]
+    styles:[`.border{ border-style: groove;}`]
 })
 
 export class LastPicturesComponent{
